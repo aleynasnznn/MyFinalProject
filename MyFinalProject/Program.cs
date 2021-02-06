@@ -8,8 +8,8 @@ namespace MyFinalProject
     {
         static void Main(string[] args)
         {
-            //ProductTest();
-            CategoryTest();
+            ProductTest();
+            //CategoryTest();
         }
 
         private static void CategoryTest()
@@ -25,9 +25,9 @@ namespace MyFinalProject
         {
             ProductManager productManager = new ProductManager(new EfProductDal());
 
-            foreach (var product in productManager.GetByUnitPrice(40, 100))
+            foreach (var product in productManager.GetProductDetails())
             {
-                Console.WriteLine(product.ProductName);
+                Console.WriteLine(product.CategoryName+" / "+product.CategoryName);
             }
         }
     }
