@@ -24,11 +24,15 @@ namespace MyFinalProject
         private static void ProductTest()
         {
             ProductManager productManager = new ProductManager(new EfProductDal());
+            var result = productManager.GetProductDetails();
+            if(result.Success)
+                foreach (var product in result.Data)
+                {
+                    Console.WriteLine(product.CategoryName + " / " + product.CategoryName);
+                }
 
-            foreach (var product in productManager.GetProductDetails())
-            {
-                Console.WriteLine(product.CategoryName+" / "+product.CategoryName);
-            }
+            else
+                Console.WriteLine(result.Message);
         }
     }
 }
